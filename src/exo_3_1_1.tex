@@ -1,0 +1,70 @@
+\documentclass[10pt,a4paper,twoside]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{cleveref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{parskip}
+\usepackage{tikz-cd}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+
+%% \newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
+%% \newcommand{\Set}{\catname{Set}}
+
+\theoremstyle{definition}
+\newcounter{excounter}
+\setcounter{excounter}{0}
+\newtheorem{exercise}[excounter]{Exercise}
+
+\begin{document}
+
+\begin{exercise}
+
+  In any category,
+  \begin{enumerate}
+  \item $g \circ f$ is monic if both $f$ and $g$ are monic.
+  \item If $g \circ f$ is monic then so is $f$.
+  \end{enumerate}
+
+\end{exercise}
+
+\begin{proof}
+
+  \begin{enumerate}
+
+  \item Suppose that both $f$ and $g$ are monic, and let $h$, $k$, $a$, $b$, $c$, $d$ be arrows and objetcs as in the diagram below:
+    \begin{equation}\label{diag:monic}
+      \begin{tikzcd}
+        a \arrow[r, shift left, "h"] \arrow[r, shift right, "k" below]
+        & b \arrow[r, "f"]
+        & c \arrow[r, "g"]
+        & d
+      \end{tikzcd}
+    \end{equation}
+
+    Suppose that $g \circ f \circ h = g \circ f \circ k$. Then we have:
+    \begin{align*}
+      g \circ ( f \circ h ) &= g \circ ( f \circ k ) &\text{associativity of }\circ \\
+                  f \circ h &= f \circ k             &\text{since $g$ is monic} \\
+                          h &= k                     &\text{since $f$ is monic}
+    \end{align*}
+    From this we deduce that $g \circ f$ is monic.
+
+  \item Suppose that there are objects and arrows as shown in diagram \ref{diag:monic}, that $g \circ f$ is monic, and that $f \circ h = f \circ k$. Then we have:
+    \begin{align*}
+      f \circ h             &= f \circ k \\
+      g \circ ( f \circ h ) &= g \circ ( f \circ k ) &\text{since }\cod(f) = \dom(g) \\
+      ( g \circ f ) \circ h &= ( g \circ f ) \circ k &\text{associativity of }\circ \\
+                          h &= k                     &\text{since $g \circ f$ is monic}
+    \end{align*}
+    From this we deduce that $f$ is itself monic.
+
+  \end{enumerate}
+
+\end{proof}
+
+\end{document}
