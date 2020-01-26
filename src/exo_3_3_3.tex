@@ -1,0 +1,48 @@
+\documentclass[11pt,a4paper,twoside]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{cleveref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{parskip}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+
+\newcommand{\aname}[1]{{\normalfont\textbf{#1}}}
+\newcommand{\Id}{\aname{1}}
+
+%% \newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
+%% \newcommand{\Set}{\catname{Set}}
+
+\theoremstyle{definition}
+\newcounter{excounter}
+\setcounter{excounter}{2}
+\newtheorem{exercise}[excounter]{Exercise}
+
+\begin{document}
+
+\begin{exercise}
+
+  $f \circ g$ is iso if $f$, $g$ are, with $( f \circ g )^{-1} = g^{-1} \circ f^{-1}$.
+
+\end{exercise}
+
+\begin{proof}
+
+  Let $a \xrightarrow{g} b$ and $b \xrightarrow{f} c$ be two iso arrows, with $g^{-1}$ and $f^{-1}$ their respective inverses. Then we have:
+  \begin{align*}
+    ( f \circ g ) \circ ( g^{-1} \circ f^{-1} ) &= & ( g^{-1} \circ f^{-1} ) \circ ( f \circ g ) &= \\
+    f \circ ( g \circ g^{-1} ) \circ f^{-1}     &= & g^{-1} \circ  ( f^{-1} \circ f ) \circ g    &= \\
+    f \circ \Id_b \circ f^{-1}                 &= & g^{-1} \circ \Id_b \circ g                  &= \\
+    ( f \circ \Id_b ) \circ f^{-1}             &= & ( g^{-1} \circ \Id_b ) \circ g              &= \\
+    f \circ f^{-1}                             &= & g^{-1} \circ g                              &= \\
+    \Id_c                                      &  & \Id_a
+  \end{align*}
+  so that $f \circ g$ is iso with inverse $( f \circ g )^{-1} = g^{-1} \circ f^{-1}$.
+
+\end{proof}
+
+\end{document}

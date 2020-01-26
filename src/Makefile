@@ -1,3 +1,3 @@
-NAME = exo_3_1_1
+NAME = exo_3_3_3
 
 include /usr/share/latex-mk/latex.gmk

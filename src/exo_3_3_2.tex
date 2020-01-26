@@ -19,20 +19,25 @@
 
 \theoremstyle{definition}
 \newcounter{excounter}
-\setcounter{excounter}{3}
+\setcounter{excounter}{1}
 \newtheorem{exercise}[excounter]{Exercise}
 
 \begin{document}
 
 \begin{exercise}
 
-
+If $f$ is iso, so is $f^{-1}$.
 
 \end{exercise}
 
 \begin{proof}
 
+  An arrow $a \xrightarrow{F} b$ is iso iff there exists an arrow $b \xrightarrow{G} a$ such that
+  \begin{align}
+    F \circ G = \Id_b &\quad G \circ F = \Id_a
+  \end{align}
 
+  For $a \xrightarrow{f} b$ an iso arrow, the above equations are satisfied if we set $F = f$ and $G = f^{-1}$. But they are also satisfied if we set $F = f^{-1}$ and $G = f$, so that $f^{-1}$ is an iso arrow $b \to a$ with $f$ as its inverse.
 
 \end{proof}
 
