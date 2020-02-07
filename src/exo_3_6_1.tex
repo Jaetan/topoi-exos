@@ -27,13 +27,18 @@
 
 \begin{exercise}
 
-
+  Prove that all terminal $\mathscr{C}$-objects are isomorphic.
 
 \end{exercise}
 
 \begin{proof}
 
-
+  Let $a$ and $b$ be terminal $\mathscr{C}$-objects. Then the identity $\Id_a \colon a \to a$ (resp. $\Id_b \colon b \to b$) is the unique arrow $a \to a$ (resp. $b \to b$).
+  Since $a$ (resp. $b$) is terminal, there exists a unique arrow $j \colon b \to a$ (resp. $i \colon a \to b$). Then the composite arrow $j \circ i$ (resp. $i \circ j$) is an arrow from $a$ to $a$ (resp. $b$ to $b$), and therefore equal to $\Id_a$ (resp. $\Id_b$). Therefore we have:
+  \begin{align*}
+    i \circ j = \Id_b && j \circ i = \Id_a
+  \end{align*}
+  which shows that $a$ and $b$ are isomorphic.
 
 \end{proof}
 

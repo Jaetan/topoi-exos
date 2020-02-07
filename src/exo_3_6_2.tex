@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper,twoside]{article}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{cleveref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{parskip}
+\usepackage{tikz-cd}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+
+\newcommand{\aname}[1]{{\normalfont\textbf{#1}}}
+\newcommand{\Id}{\aname{1}}
+
+\newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
+\newcommand{\Set}{\catname{Set}}
+
+\theoremstyle{definition}
+\newcounter{excounter}
+\setcounter{excounter}{2}
+\newtheorem{exercise}[excounter]{Exercise}
+
+\begin{document}
+
+\begin{exercise}
+
+Find terminals in $\Set^2$, $\Set^\to$ and the poset $\catname{n}$.
+
+\end{exercise}
+
+\begin{proof}\hfill
+
+  \begin{enumerate}
+  \item In $\Set^2$, any object of the form $\langle \{ a \}, \{ b \} \rangle$ where $\{ a \}$ and $\{ b \}$ are singleton sets, is terminal: let $\langle A, B \rangle$ be an object in $\Set^2$, there exists a unique function $f \colon A \to \{ a \}$ and a unique function $g \colon B \to \{ b \}$, since both $\{ a \}$ and $\{ b \}$ are terminal in $\Set$. Then $\langle f, g \rangle \colon \langle A, B \rangle \to \langle \{ a \}, \{ b \} \rangle$ is an arrow of $\Set^2$. For all arrows $\langle f', g' \rangle$ of $\Set^2$ between the same objects, $f'$ is a function $A \to \{ a \}$ and $g'$ is a function $B \to \{ b \}$. By terminality of $\{ a \}$ and $\{ b \}$ in $\Set$, we must then have $f' = f$ and $g' = g$, so that $\langle \{ a \}, \{ b \} \rangle$ is terminal in $\Set^2$.
+
+  \item In $\Set^\to$, any object of the form $\{ a \} \to \{ b \}$ where $\{ a \}$ and $\{ b \}$ are singleton sets, is terminal: let $\phi \colon A \to B$ be an object of $\Set^\to$, there exist unique functions $f \colon A \to \{ a \}$ and $g \colon B \to \{  b \}$. These functions make the following diagram commute:
+    \begin{equation}
+      \begin{tikzcd}
+        A \arrow[d, "\phi"] \arrow[r, "f"] & \{ a \} \arrow[d] \\
+        B \arrow[r, "g"]                   & \{ b \}                  
+      \end{tikzcd}      
+    \end{equation}
+    so that $\langle f, g \rangle$ is the unique arrow of $\Set^\to$ between $\phi$ and $\{ a \} \to \{ b \}$.
+
+  \item In the poset $\catname{n}$ for $n \geq 1$, for all objects $m$ we have $m \leq n - 1$, so that there is an arrow $m \to n - 1$. As an arrow in a poset, it is unique. Therefore, $n - 1$ is terminal. The poset $\catname{0}$ has a unique object $0$ and an unique arrow $\Id_0 \colon 0 \to 0$; $0$ is therefore terminal.
+  \end{enumerate}
+
+\end{proof}
+
+\end{document}

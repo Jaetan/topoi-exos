@@ -7,7 +7,6 @@
 \usepackage{cleveref}
 \usepackage[shortlabels]{enumitem}
 \usepackage{parskip}
-\usepackage{tikz-cd}
 
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\cod}{cod}
@@ -17,23 +16,24 @@
 
 \newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
 \newcommand{\Set}{\catname{Set}}
+\newcommand{\Finord}{\catname{Finord}}
 
 \theoremstyle{definition}
 \newcounter{excounter}
-\setcounter{excounter}{0}
+\setcounter{excounter}{1}
 \newtheorem{exercise}[excounter]{Exercise}
 
 \begin{document}
 
 \begin{exercise}
 
-
+  $\Finord$ is a skeletal category.
 
 \end{exercise}
 
 \begin{proof}
 
-
+  Let $n$ and $m$ be two objects of $\Finord$, and $f$ an isomorphism from $n$ to $m$. Then $f$ is a bijection between the ordinals $n$ and $m$. If $n \subset m$, then $n$ is a section of $m$ and such a bijection does not exist. From this we deduce that we must have $n = m$ (as the roles of $n$ and $m$ can be exchanged in the previous sentence). In turn, this means that $f = \Id_n = \Id_m$, so that $\Finord$ is skeletal.
 
 \end{proof}
 
